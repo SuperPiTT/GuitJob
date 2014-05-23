@@ -1,0 +1,108 @@
+{% extends "principal/base.html" %}
+
+{% block contenido %}
+	<div class="row">
+		<div class="col-sm-12">
+			<button class="btn btn-primary">Busqueda Avanzada</button>
+			<a href="{% url 'proyectos_crear' %}" class="btn btn-primary">Crear Proyecto</a>	
+		</div>
+
+	</div>
+	<div class="row" style="margin-left:5px;margin-right:5px">
+		{% for proyecto in object_list %}
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">
+			 	 <a href="/proyectos/detalle">{{proyecto.titulo}}</a>
+			 	 <div class="pull-right">
+			 	 	<img src="a" alt=""> <a href="/proyecto"> {{proyecto.creador.perfil.nombre}}</a>
+			 	 </div>
+			 	 
+			  </div>
+			  <div class="panel-body">
+			    <p>{{proyecto.slogan}}</p>
+
+
+				<table class="table">
+			        <tbody>
+			          <tr>
+			            <td>Tecnología:</td>
+			            <td><a href="s">Python/Django</a> <a href="s">Mysql</a>  <a href="s">Node</a>  <a href="s">MongoDB</a> <a href="s">Redis</a></td>
+			          </tr>
+			        </tbody>
+			    </table>
+			  </div>
+			    <div class="row  text-center" style="padding:5px">
+			        <div class="col-sm-4 col-xs-4"> 
+			          <div style="font-size:22px;color:#e7e7e7" class="pull-left">
+			          	<span class="glyphicon glyphicon-star"></span>
+			          </div> 
+			          <span style="margin-left:5px;font-size:12px;" class="pull-right"> 12</span>
+					</div> 
+					<div class="col-sm-4 col-xs-4"> 
+			          <div style="font-size:22px;color:#e7e7e7" class="pull-left">
+			          	<span class="glyphicon glyphicon-comment"></span>
+			          </div> <span style="margin-left:5px;font-size:12px;" class="pull-right"> 22</span>
+
+			        </div>
+			        <div class="col-sm-4 col-xs-4"> 
+			          <div style="font-size:22px;color:#e7e7e7" class="pull-left">
+			          	<span class="glyphicon glyphicon-user" ></span>
+			          </div> <span style="margin-left:5px;font-size:12px;" class="pull-right"> 3</span>
+					</div>
+				</div>
+
+				<div class="row text-center hidden-xs" style="padding:5px">
+					<div class="col-sm-4 col-xs-12"> 
+			          <div style="font-size:22px;color:#e7e7e7" class="pull-left">
+			          	<span class="glyphicon glyphicon-calendar"></span>
+			          </div> <span style="margin-left:5px;font-size:12px;" class="pull-right"> 18/04/2014</span>
+					</div>
+					<div class="col-sm-4 col-xs-12"> 
+			          <div style="font-size:22px;color:#e7e7e7" class="pull-left">
+			          	<span class="glyphicon glyphicon-globe"></span>
+			          </div> <span style="margin-left:5px;font-size:12px;" class="pull-right"> {{proyecto.tipo.nombre}}</span>
+					</div>
+					<div class="col-sm-4 col-xs-12"> 
+			          <div style="font-size:22px;color:#e7e7e7" class="pull-left">
+			          	<span class="glyphicon glyphicon-globe"></span>
+			          </div> <span style="margin-left:5px;font-size:12px;" class="pull-right"> hace 2 horas</span>
+					</div>
+				</div>
+
+		      <table class="table">
+		      	<thead> 
+		      	  <tr>
+		            <th>Se necesita:</th>
+		          </tr>
+		        </thead> 
+		        <tbody>
+		          <tr>
+		            <td>Frontend</td>
+		            <td>Javascript</td>
+		          </tr>
+		          <tr>
+		            <td>Marketing</td>
+		            <td>Comunnity Manager</td>
+		          </tr>
+		          <tr>
+		            <td>Servidores</td>
+		            <td>CentOS</td>
+		          </tr>
+		          <tr>
+		          	<td></td>
+		          	<td>
+		          		<a href="{% url 'proyectos_detalle' slug=proyecto.slug %}" class="btn btn-primary pull-right">Ver Detalle</a>
+		          	</td>
+		          </tr>
+		        </tbody>
+		      </table>
+
+			</div>
+		</div>
+		{% empty %}
+		    No hay ningún proyecto aún.
+		{% endfor %}
+	</div>
+{% endblock contenido %}

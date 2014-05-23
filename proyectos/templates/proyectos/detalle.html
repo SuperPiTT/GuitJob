@@ -1,0 +1,213 @@
+{% extends "principal/base.html" %}
+
+{% block contenido %}
+
+<ol class="breadcrumb">
+  <li><a href="#">Inicio</a></li>
+  <li class="active" ><a href="#">Proyectos</a></li>
+</ol>
+
+<div class="page-header">
+  <h1>{{object.titulo}} <small> {{object.slogan}}</small></h1>
+</div>
+<div class="row text-center well">
+	<div class="pull-left" >
+
+		<div class="btn-group" style="margin:7px">
+		  <button type="button" class="btn btn-default">
+		  	<span class="glyphicon glyphicon-star"></span> 
+		  </button>
+		  <button type="button" class="btn btn-default">22</button>
+		</div>
+
+	</div>
+	<div  class="pull-left" >
+
+		<div class="btn-group" style="margin:7px">
+		  <button type="button" class="btn btn-default" >
+		  	<span class="glyphicon glyphicon-comment"></span> 
+		  </button>
+		  <button type="button" class="btn btn-default">223</button>
+		</div>
+
+	</div>
+	<div  class="pull-left" >
+
+		<div class="btn-group" style="margin:7px">
+		  <button type="button" class="btn btn-default" >
+		  	<span class="glyphicon glyphicon-eye-open"></span> 
+		  </button>
+		  <button type="button" class="btn btn-default">223</button>
+		</div>
+	</div>
+
+	
+	
+
+
+</div>
+<div class="row">
+	<div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Información:</div>
+		  <div class="panel-body">
+		  	<p>
+		  		{{object.desc}}
+		  	</p>
+		  </div>
+		  	<table class="table">
+		  		<tr>
+		   			<td>Creador:</td>
+		   			<td><img src="s" alt=""/> {{object.creador.UserProfile.nombre}}</td>
+		   		</tr>
+		   		<tr>
+		   			<td>Tipo:</td>
+		   			<td>{{object.tipo.nombre}}</td>
+		   		</tr>
+		   		<tr>
+		   			<td>Repositorio:</td>
+		   			<td>{{object.repo}}</td>
+		   		</tr>
+		   		<tr>
+		   			<td>Web:</td>
+		   			<td>{{object.web}}</td>
+		   		</tr>
+		  </table>
+
+		</div>
+	</div>
+    <div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Tecnologías:</div>
+		  <!-- Table -->
+		  <table class="table">
+		   		<tr>
+		   			<td>Python/Django</td>
+		   		</tr>
+		   		<tr>
+		   			<td>Mysql</td>
+		   		</tr>
+			   	<tr>
+		   			<td>Node</td>
+		   		</tr>
+		   		<tr>
+		   			<td>Socket.io</td>
+		   		</tr>		 
+		  </table>
+		</div>
+	</div>
+	<div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Equipo:</div>
+		  <!-- Table -->
+		  <table class="table">
+		   		<tr>
+		   			<td><img src="a" alt=""></td>
+		   			<td>Pedro López</td>
+		   			<td>España</td>
+		   			<td>Backend</td>
+		   		</tr>
+		   		<tr>
+		   			<td><img src="a" alt=""></td>
+		   			<td>Pedro López</td>
+		   			<td>España</td>
+		   			<td>Frontend</td>
+		   		</tr>
+		  </table>
+		</div>
+	</div>
+	<div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Buscando:</div>
+		  <!-- Table -->
+		  <table class="table">
+		   		<tr>
+		   			<td>Backend</td>
+		   			<td>Node</td>
+		   			<td><button class="btn btn-xs btn-success">Solicitar puesto</button></td>
+		   		</tr>
+		   		<tr>
+		   			<td>Frontend</td>
+		   			<td>Javascript</td>
+		   			<td><button class="btn btn-xs btn-success">Solicitar puesto</button></td>
+		   		</tr>		 
+		  </table>
+		</div>
+	</div>
+
+</div>
+<div class="row">
+	<div class="col-sm-6 col-md-6">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">
+		  	Comnetarios:
+		  	<div class="pull-right badge">
+		  		22
+		  	</div>
+
+		  </div>
+		  <div class="panel-body">
+		  Comentar: <textarea class="form-control" name="comment" id="" cols="60" rows="5"></textarea>
+
+		  </div>
+		  <button class="btn btn-sm pull-right">Enviar</button>
+		  <!-- Table -->
+		  <table class="table">
+		   		<tr>
+		   			<td><img src="s" alt=""></br>Pedro</br> 12/12/87 14:44</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   		</tr>
+		   		<tr>
+		   			<td><img src="s" alt=""></br>Pedro</br> 12/12/87 14:44</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   		</tr>
+		   		<tr>
+		   			<td><img src="s" alt=""></br>Pedro lopex  </br>12/12/87 14:44</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   			
+		   		</tr>
+		  </table>
+		</div>
+	</div>
+
+	<div class="col-sm-6 col-md-6">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">
+		  	Ideas:
+			<div class="pull-right badge">
+		  		22
+		  	</div>
+		  </div>
+		  <!-- Table -->
+		  <table class="table">
+		   		<tr>
+		   			<td><img src="s" alt="">Pedroaaaaaaaaa</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   			<td>22</td>
+		   			<td><span class="glyphicon glyphicon-thumbs-up"></span> <span class="glyphicon glyphicon-thumbs-down"></span></td>
+		   		</tr>
+		   		<tr>
+		   			<td><img src="s" alt="">Pedro lopex</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   			<td>22</td>
+		   			<td><span class="glyphicon glyphicon-thumbs-up"></span> <span class="glyphicon glyphicon-thumbs-down"></span></td>
+		   		</tr>
+		   		<tr>
+		   			<td><img src="s" alt="">Pedro lopex</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   			<td>22</td>
+		   			<td><span class="glyphicon glyphicon-thumbs-up"></span> <span class="glyphicon glyphicon-thumbs-down"></span></td>
+		   			
+		   		</tr>
+		  </table>
+		</div>
+	</div>
+
+</div>
+{% endblock contenido %}

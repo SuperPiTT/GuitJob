@@ -1,0 +1,64 @@
+{% extends "principal/base.html" %}
+
+{% block contenido %}
+<div class="row">
+	<div class="col-sm-12">
+		<button class="btn btn-primary">Busqueda Avanzada</button>	
+	</div>
+
+</div>
+<div class="row">
+	{% for perfil in object_list %}
+	<div class="col-sm-6 col-md-4">
+		<div class="panel panel-default" style="cursor:pointer" onclick="document.location='{% url 'perfiles_detalle'  perfil.id %}'">
+			  <!-- Default panel contents -->
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-sm-4 text-left">
+						<img src="s"/> {{perfil.nombre}}
+					</div>
+					<div class="col-sm-4 text-center">
+						Backend
+					</div>
+					<div class="col-sm-4 text-right">
+						Sevilla
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, nobis, ex, odio facere sint nulla ratione recusandae minima unde perspiciatis accusantium ipsam! Id ut magnam sit obcaecati accusamus aliquid quos.
+			</div>
+			<div class="row" style="font-size:16px">
+				<div class="col-sm-3 text-center">
+					<span style="font-size:20px">
+						<span class="glyphicon glyphicon-list-alt"></span>
+					</span>
+					2
+				</div>
+				<div class="col-sm-3 text-center">
+					<span style="font-size:20px">
+						<span class="glyphicon glyphicon-info-sign"></span>
+					</span>
+					20
+				</div>
+				<div class="col-sm-3 text-center">
+					<span style="font-size:20px">
+						<span class="glyphicon glyphicon-wrench"></span>
+					</span>
+					20
+				</div>
+				<div class="col-sm-3 text-center">
+					<span style="font-size:20px">
+						<span class="glyphicon glyphicon-thumbs-up"></span>
+					</span>
+					202
+				</div>
+			</div>
+		</div>
+	</div>
+	{% empty %}
+	    No hay ningún perfil aún.
+	{% endfor %}
+</div>
+
+{% endblock contenido %}

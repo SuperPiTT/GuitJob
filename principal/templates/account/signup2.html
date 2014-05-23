@@ -1,0 +1,73 @@
+		<form class="form-horizontal" role="form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+		  {% csrf_token %}
+			<hr>
+			<div class="row">
+				<div class="col-md-5">
+					<div class="form-group">
+                        <input type="text" name="nombre" id="nombre" class="form-control input-lg" placeholder="Nombre" tabindex="1" maxlength="50">
+                        {% if form.nombre.errors %}
+                        <span class="help-inline text-danger">
+                        	 {{form.nombre.errors}} 
+                        </span>
+                        {% endif %}
+					</div>
+				</div>
+				<div class="col-md-2">
+					
+				</div>
+				<div class="col-md-5">
+					<div class="form-group">
+						<input type="text" name="apellidos" id="apellidos" class="form-control input-lg" placeholder="Apellidos" tabindex="2" maxlength="50">
+					</div>
+				    {% if form.apellidos.errors %}
+                    <span class="help-inline text-danger">
+                    	 {{form.apellidos.errors}} 
+                    </span>
+                    {% endif %}
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="4" maxlength="50">
+					</div>
+					{% if form.email.errors %}
+	                    <span class="help-inline text-danger">
+	                    	 {{form.email.errors}} 
+	                    </span>
+                    {% endif %}
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<input type="password" name="password1" id="password" class="form-control input-lg" placeholder="Clave" tabindex="5" maxlength="50">
+						{% if form.password1.errors %}
+	                    <span class="help-inline text-danger">
+	                    	{{form.password1.errors}} 
+	                    </span>
+                    	{% endif %}
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<input type="password" name="password2" id="password_confirmation" class="form-control input-lg" placeholder="Repetir Clave" tabindex="6" maxlength="50">
+						{% if form.password2.errors %}
+		                    <span class="help-inline text-danger">
+		                    	 {{form.password2.errors}} 
+		                    </span>
+	                    {% endif %}
+					</div>
+
+				</div>
+				<div class="col-md-12">
+					 Pinchando en  <strong class="label label-success">Registrar</strong>, aceptas nuestras políticas y concidicones <a href="#" data-toggle="modal" data-target="#t_and_c_m">Políticas y condiciones</a> incluyendo nuestro uso de "Cookies".
+				</div>
+				<div class="col-md-12">
+					<hr >
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-6"><a href="#" class="btn btn-primary btn-block btn-lg">Conectar</a></div>
+					<div class="col-md-6"><input type="submit" value="Registrar" class="btn btn-success btn-block btn-lg" tabindex="7"></div>
+				</div>
+			</div>
+		  {% if redirect_field_value %}
+		  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+		  {% endif %}
+		</form>

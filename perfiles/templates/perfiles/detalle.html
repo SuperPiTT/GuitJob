@@ -1,0 +1,201 @@
+{% extends "principal/base.html" %}
+
+{% block contenido %}
+
+<ol class="breadcrumb">
+  <li><a href="#">Inicio</a></li>
+  <li class="active" ><a href="#">Perfiles</a></li>
+</ol>
+<div class="page-header">
+    <h1>
+    	{% if object.foto %}
+    		<img src="{{object.foto.url}}" alt="" width="100px" height="100px"> 
+    	{% else %}
+    		<img src="" alt="" width="100px" height="100px"> 
+    	{% endif %}
+    	{{object.nombre}} <small> Backend / {{object.geocomplete }}</small>
+    </h1>
+	<div class="row" style="font-size:16px">
+		<div class="col-sm-3 text-center">
+			<span style="font-size:20px">
+				<span class="glyphicon glyphicon-list-alt"></span>
+			</span>
+			Puestos:
+			2
+		</div>
+		<div class="col-sm-3 text-center">
+			<span style="font-size:20px">
+				<span class="glyphicon glyphicon-info-sign"></span>
+			</span>
+			Ideas:
+			20
+		</div>
+		<div class="col-sm-3 text-center">
+			<span style="font-size:20px">
+				<span class="glyphicon glyphicon-wrench"></span>
+			</span>
+			Tareas:
+			20
+		</div>
+		<div class="col-sm-3 text-center">
+			<span style="font-size:20px">
+				<span class="glyphicon glyphicon-thumbs-up"></span>
+			</span>
+			Valoración:
+			202
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Información:
+
+			<div class="pull-right">
+	            <div class="btn-group btn-group-xs">
+	                <a href="{% url 'perfiles_informacion_editar' pk=object.pk %}" class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Edit Widget"><i class="fa fa-pencil"></i></a>
+	            </div>
+            </div>
+		  </div>
+		  <div class="panel-body">
+		  	<p>
+		  		{{object.info}}
+		  	</p>
+		  </div>
+		  	<table class="table table-responsive">
+		  		{% if object.facebook %} 
+		  		<tr>
+		   			<td>Facebook:</td>
+		   			<td><a href="{{object.facebook}}">{{object.nombre}}</a></td>
+		   		</tr>
+		   		{% endif %}
+		   		{% if object.twitter %} 
+		   		<tr>
+		   			<td>Twitter:</td>
+		   			<td><a href="{{object.twitter}}">{{object.nombre}}</a></td>
+		   		</tr>
+		   		{% endif %}
+		   		{% if object.google %} 
+		   		<tr>
+		   			<td>Google +:</td>
+		   			<td><a href="{{object.google}}">{{object.nombre}}</a></td>
+		   		</tr>
+		   		{% endif %}
+		   		{% if object.web %} 
+		   		<tr>
+		   			<td>Web:</td>
+		   			<td><a href="{{object.web}}">{{object.web}}</a></td>
+		   		</tr>
+		   		{% endif %}
+		   		{% if object.repo %} 
+		   		<tr>
+		   			<td>Repositorio:</td>
+		   			<td><a href="{{object.repo}}">{{object.repo}}</a></td>
+		   		</tr>
+		   		{% endif %}
+		   		{% if object.so %} 
+		   		<tr>
+		   			<td>Sistema Operativo:</td>
+		   			<td>{{object.so}}</td>
+		   		</tr>
+		   		{% endif %}
+		  </table>
+
+		</div>
+	</div>
+    <div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">
+		  	Tecnologías:
+			<div class="pull-right">
+	            <div class="btn-group btn-group-xs">
+	                <a href="{% url 'perfiles_informacion_editar_conocimiento' pk=object.pk %}" class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Editar"><i class="fa fa-pencil"></i></a>
+	            </div>
+	        </div>
+		  </div>
+		  <!-- Table -->
+		  <table class="table">
+		  		{% for tec in object.techs.all %}
+		   		<tr>
+		   			<td>{{tec.nombre}}</td>
+		   			<td>{{tec.nivel}}</td>
+		   		</tr>
+	 			{% endfor %}
+		  </table>
+		</div>
+	</div>
+	<div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Puestos:</div>
+		  <!-- Table -->
+		  <table class="table">
+		   		<tr>
+		   			<td>GuitJob</td>
+		   			<td>Backend</td>
+		   		</tr>
+		   		<tr>
+		   			<td>Guisar</td>
+		   			<td>Backend</td>
+		   		</tr>
+		  </table>
+		</div>
+	</div>
+
+
+</div>
+<div class="row">
+	<div class="col-sm-6 col-md-6">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Comnetarios:</div>
+		  <div class="panel-body">
+		  Comentar: <textarea class="form-control" name="comment" id="" cols="60" rows="5"></textarea>
+
+		  </div>
+		  <button class="btn btn-sm pull-right">Enviar</button>
+		  <!-- Table -->
+		  <table class="table">
+		   		<tr>
+		   			<td><img src="s" alt=""></br>Pedro</br> 12/12/87 14:44</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   		</tr>
+		   		<tr>
+		   			<td><img src="s" alt=""></br>Pedro</br> 12/12/87 14:44</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   		</tr>
+		   		<tr>
+		   			<td><img src="s" alt=""></br>Pedro lopex  </br>12/12/87 14:44</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   			
+		   		</tr>
+		  </table>
+		</div>
+	</div>
+
+	<div class="col-sm-6 col-md-6">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Ideas:</div>
+		  <!-- Table -->
+		  <table class="table">
+		   		<tr>
+		   			<td>GuitJob</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   			<td>22</td>
+		   			<td><span class="glyphicon glyphicon-thumbs-up"></span> <span class="glyphicon glyphicon-thumbs-down"></span></td>
+		   		</tr>
+		   		<tr>
+		   			<td>Guisar</td>
+		   			<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, velit, eveniet. Sapiente, in, fugit veritatis eum fugiat eaque commodi ut tempore maxime labore praesentium qui ipsam quaerat hic ipsa quos!</td>
+		   			<td>22</td>
+		   			<td><span class="glyphicon glyphicon-thumbs-up"></span> <span class="glyphicon glyphicon-thumbs-down"></span></td>
+		   		</tr>
+		  </table>
+		</div>
+	</div>
+
+</div>
+{% endblock contenido %}

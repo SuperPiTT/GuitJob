@@ -1,0 +1,85 @@
+{% extends "principal/base.html" %}
+{% load staticfiles %}
+
+{% block extracss %} 
+<link rel="stylesheet" href="{% static 'guitjob/css/datepicker.css' %}">
+{% endblock extracss %} 
+
+{% block extrajs %} 
+	
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <script src="{% static 'guitjob/js/vendor/jquery.geocomplete.min.js' %}"></script>
+    <script src="{% static 'guitjob/js/vendor/jquery.formset.min.js' %}"></script>
+    
+	<script src="{% static 'guitjob/js/vendor/bootstrap-datepicker.js' %}"></script>
+	<script src="{% static 'guitjob/js/vendor/locales/bootstrap-datepicker.es.js' %}"></script>
+    <script>
+      $(function(){
+        $("#geocomplete").geocomplete({
+          details: "form",
+          types: ["geocode", "establishment"],
+        });
+
+        $("#find").click(function(){
+          $("#geocomplete").trigger("geocode");
+        });
+      });
+	    
+
+    </script>
+{% endblock extrajs %}
+
+{% block contenido %}
+
+<ol class="breadcrumb">
+  <li><a href="#">Inicio</a></li>
+  <li class="active" ><a href="#">Perfiles</a></li>
+</ol>
+
+<div class="page-header text-center">
+  <h1>Editar Perfil</small></h1>
+</div>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<form action="" method="post"
+	    {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+		    {% csrf_token %}
+		    {{ form.non_field_errors }}
+			{% for field in form.visible_fields %}
+	        <div class="form-group">
+
+	            {# Include the hidden fields in the form #}
+	            {% if forloop.first %}
+	                {% for hidden in form.hidden_fields %}
+	                {{ hidden.errors }}
+	                {{ hidden }}
+	                {% endfor %}
+	            {% endif %}
+
+	            {{ field.label_tag }} {{ field }}
+	            <div class="text-danger">
+					{{ field.errors }}
+				</div>
+	        </div>
+	    {% endfor %}
+
+		<input type="submit" class="btn btn-success pull-right" value="Enviar">
+
+		</form>
+	</div>
+</div>
+
+{% endblock contenido %}
+
+
+{% block ready %}
+
+    $("#id_cumple").datepicker({
+      language : "es-ES",
+      autoclose : "True"
+    });
+
+
+
+{% endblock ready %}
